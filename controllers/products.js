@@ -60,7 +60,9 @@ const getAllProductsTesting = async (req, res) => {
   //console.log(req.query);
   //const myData = await Product.find({company:"apple"}).skip(2);
   //res.status(200).json({ myData});
-   const myData = await Product.find(req.query)//.skip(2);
+
+  const myData = await Product.find(req.query).sort("-rating")
+  // const myData = await Product.find(req.query)//.skip(2);
   // sort = name,price;
 
   res.status(200).json({ myData, nbHits: myData.length });
